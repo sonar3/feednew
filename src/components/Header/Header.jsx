@@ -10,11 +10,11 @@ export default function Header() {
 		<HeaderSearch />
 		
 		<nav className={styles.header_nav}>
-			<a href={"#"} className={styles.header_nav__active}><span>전체</span></a>
-			<a href={"#"}>팔로잉</a>
-			<a href={"#"}>우먼</a>
-			<a href={"#"}>맨</a>
-			<a href={"#"}>5월의 탑셀럽</a>
+			<a href="#none" className={styles.header_nav__active}><span>전체</span></a>
+			<a href="#none">팔로잉</a>
+			<a href="#none">우먼</a>
+			<a href="#none">맨</a>
+			<a href="#none">5월의 탑셀럽</a>
 		</nav>
 		<div className={styles.header_favorite}>
 			<p>
