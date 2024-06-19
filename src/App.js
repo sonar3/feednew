@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useCallback } from 'react';
+import { Virtuoso } from 'react-virtuoso';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import axios from 'axios';
+
+import './App.css';
+import Header from './components/Header/Header';
+import FeedList from './components/FeedItem/FeedList';
+
+export default function App() {
+	const [data, setData] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const feedLimit = 100;
+
+	const fetchData = async (page) => {
+		try {
+			const response = await axios.get(`http://dev.api.vastyle.co.kr/feed/test?page=${page}&limit=${feedLimit}`);
+			return response.data.data.result;
+		} catch (error) {
+			console.log("error", error);
+			return [];
+		}
+	};
+
+	const loadMore = useCallback(() => {
+		fetchData(currentPage + 1)
+			.then((newData) => {
+				console.log(newData)
+				if (newData.length > 0) {
+					setData((prevData) => [...prevData, ...newData]);
+					setCurrentPage((prevPage) => prevPage + 1);
+					console.log(currentPage)
+				}
+			});
+	}, [currentPage]);
+
+
+	useEffect(() => {
+		fetchData(currentPage)
+			.then((initialData) => setData(initialData));
+	}, []);
+
+	return (
+		<>
+			<Header />
+			<Virtuoso
+				style={{ maxWidth: "480px", height: "100dvh", margin: "0 auto" }}
+				className='feed-list'
+				data={data}
+				useWindowScroll
+				endReached={loadMore}
+				itemContent={(index, data) => {
+					return (
+						<FeedList feedIndex={index} feedData={data} />
+					);
+				}}
+			/>
+		</>
+	);
 }
 
-export default App;
+

@@ -1,0 +1,6 @@
+.reply_container{padding:9px 0 23px 17px;border-top: 1px solid #eee;}
+
+.reply{display: grid;grid-auto-flow: column;grid-template-columns: auto 61px;}
+.reply_input{height: 32px;padding-left: 12px;background: #ececec;border:0!important}
+.reply_input::placeholder{color:#939393}
+.reply_button{color: #939393;font-size:14px;font-weight:500;}
