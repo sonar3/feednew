@@ -38,7 +38,7 @@ export default function App() {
 	useEffect(() => {
 		fetchData(currentPage)
 			.then((initialData) => setData(initialData));
-	}, []);
+	}, [currentPage]);
 
 	return (
 		<>
