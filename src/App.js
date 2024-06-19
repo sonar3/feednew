@@ -14,7 +14,7 @@ export default function App() {
 
 	const fetchData = async (page) => {
 		try {
-			const response = await axios.get(`http://dev.api.vastyle.co.kr/feed/test?page=${page}&limit=${feedLimit}`);
+			const response = await axios.get(`https://api.vastyle.co.kr/feed/test?page=${page}&limit=${feedLimit}`);
 			return response.data.data.result;
 		} catch (error) {
 			console.log("error", error);
