@@ -35,7 +35,7 @@ export default function Header() {
 				<span className={styles.header_ranking___aka}>hx_jiv</span>
 			</div>
 			<div className={styles.header_sort}>
-				<img src={icoSort} />추천순 | 최신순</div>
+				<img src={icoSort} alt='' />추천순 | 최신순</div>
 		</div>
 	</header>
   )
