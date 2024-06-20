@@ -10,7 +10,7 @@ import FeedList from './components/FeedItem/FeedList';
 export default function App() {
 	const [data, setData] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const feedLimit = 100;
+	const feedLimit = 10;
 
 	const fetchData = async (page) => {
 		try {
