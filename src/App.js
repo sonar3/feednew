@@ -14,7 +14,7 @@ export default function App() {
 
 	const fetchData = async (page) => {
 		try {
-			const response = await axios.get(`https://api.vastyle.co.kr/feed/test?page=${page}&limit=${feedLimit}`);
+			const response = await axios.get("https://api.jsonsilo.com/public/edc94799-01c9-4063-9483-507afb549917");
 			return response.data.data.result;
 		} catch (error) {
 			console.log("error", error);
@@ -58,5 +58,3 @@ export default function App() {
 		</>
 	);
 }
-
-
