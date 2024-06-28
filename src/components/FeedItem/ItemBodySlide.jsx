@@ -26,6 +26,7 @@ export default function ItemBodySlide({feedData}) {
 								decoding="async" 
 								loading="lazy" 
 								effect="blur" 
+								threshold={2000}
 								alt={`Slide ${index + 0}`} />
 						)}
 				</SwiperSlide>
