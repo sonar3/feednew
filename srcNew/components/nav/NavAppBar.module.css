@@ -1,0 +1,4 @@
+.appbar{position: sticky;bottom:0;z-index:10;max-width:480px;margin:0 auto;background: #f3f3f3;}
+.appbar ul{height:54px;display: grid;grid-auto-flow: column;justify-content: space-evenly;align-items: center;}
+.appbar ul li svg{vertical-align: middle;}
+.appbar ul li a{display: block;width:66px;height:54px;text-align: center;align-content:space-evenly}

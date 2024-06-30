@@ -1,0 +1,5 @@
+.item_body_slide{position: relative;aspect-ratio: 375/429;background: #f7f7f7 url("https://vastyle.co.kr/va/src/img/logo_loading.gif") no-repeat 50% 50% /40px auto;}
+.item_body_slide img{aspect-ratio: 375/429;object-fit: cover}
+.item_body_slide video{aspect-ratio: 375/429;object-fit: cover}
+
+.btn_likes{position: relative;}

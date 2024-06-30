@@ -1,0 +1,22 @@
+.prd_container{padding:12px 16px 0 12px}
+.prd_related{display: grid;grid-auto-flow: column;grid-template-columns: 53px minmax(0, 1fr);}
+
+.prd_img{overflow: hidden;height: 66px;}
+.prd_img img{object-fit: contain;}
+
+.prd_desc{display: grid;align-content:center;padding:0 0 0 13px;border:1px solid #ececec;}
+.prd_desc__txt1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#000;font-size:13px;font-weight:500;}
+.prd_desc__txt2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color: #939393;;font-size:12px;font-weight:500;}
+.prd_desc__txt3{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#000;font-size:13px;font-weight:500;}
+
+.prd_like{display: none;place-items: center;border:1px solid #ececec;border-width:1px 1px 1px 0;}
+
+.prd_info{display: grid;grid-auto-flow: row;gap:3px 0;margin-top: 11px;}
+.prd_info dl{display: grid;grid-auto-flow: column;grid-template-columns: max-content;gap:0 7px}
+.prd_info dt{color:#000;font-size:12px;font-weight:500;}
+
+dl.prd_info__grade{grid-template-columns: max-content 70px max-content 70px;}
+
+.prd_info__txt dd{color: #909090;font-size:12px;font-weight:400;}
+
+.prd_tag{display: inline-block;height:25px;margin: 14px 1px 1px 1px;padding:0 10px;border:1px solid #ececec;border-radius: 4px;color:#000;font-size:11px;font-weight:400;line-height: 25px;}
