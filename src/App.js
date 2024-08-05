@@ -18,9 +18,10 @@ export default function App() {
 
   const fetchData = async (page) => {
 	try {
-	  const response = await fetch(`https://api.vastyle.co.kr/shop/item-list?viewmode=trend_list&ca_id=&pt_id=&filter_price_1=0&filter_price_2=90000000&search_brand_name_mobile=&filter_sale_1=0&filter_sale_2=85&ca_id=&tab_ca_id=&pt_id=&tpv=&mb_id=adm_developer_ksj&viewmode=trend_list&trend_all=&stx=&sort=it_time&page=${page}&limit=20`);
+	//   const response = await fetch(`https://api.vastyle.co.kr/shop/item-list?viewmode=trend_list&ca_id=&pt_id=&filter_price_1=0&filter_price_2=90000000&search_brand_name_mobile=&filter_sale_1=0&filter_sale_2=85&ca_id=&tab_ca_id=&pt_id=&tpv=&mb_id=adm_developer_ksj&viewmode=trend_list&trend_all=&stx=&sort=it_time&page=${page}&limit=10`);
+	  const response = await fetch(`https://gist.githubusercontent.com/sonar3/c22b68cffd8648200f2bc0e644fe8ee5/raw/5a5204d8456672d34a87334348a6e6962844db47/gistfile1.txt`);
 	  const data = await response.json();
-	  return data.item.map((item, index) => (
+	  return data.videoInfo.map((item, index) => (
 		<>
 		<Swiper
 			direction={'horizontal'}
@@ -29,12 +30,11 @@ export default function App() {
 			  clickable: true,
 			}}
 		  >
-		  <SwiperSlide key={index}>
-			<img src={"https://vastyle.co.kr"+ item.thumbnail} alt={item.it_name} index={`이미지 ${index + 1}`} style={{ width: '100%', height: '100%' }} />
+		  <SwiperSlide>
+			<video autoPlay muted style={{ width: '100%', height: '100%', objectFit:'cover' }}>
+				<source src={item.url} type="video/mp4" />
+			</video>
 			</SwiperSlide>
-		  <SwiperSlide key={index}>
-			<img src={"https://vastyle.co.kr"+ item.feed_thumbnail} alt={item.it_name} index={`이미지 ${index + 1}`} style={{ width: '100%', height: '100%' }} />
-		  </SwiperSlide>
 		  </Swiper>
 		</>
 	  ));
@@ -88,8 +88,12 @@ export default function App() {
 		navigation={false}
 		virtual
 		direction={'vertical'}
-		onSlideChange={append}
-		// onReachEnd={append}
+		onSlideChange={(swiper) => {
+			if (swiper.activeIndex % 10 === 5) {
+				console.log(swiper.activeIndex)
+				append();
+			}
+		}}
 	  >
 		{slides.map((slideContent, index) => (
 		  <SwiperSlide key={index} virtualIndex={index}>
