@@ -31,7 +31,7 @@ export default function App() {
 			}}
 		  >
 		  <SwiperSlide>
-			<video autoPlay muted style={{ width: '100%', height: '100%', objectFit:'cover' }}>
+			<video controls={false} muted={true} autoPlay={true} loop={true} playsInline={true} webkit-playsinline="webkit-playsinline" style={{ width: '100%', height: '100%', objectFit: 'cover' }}>
 				<source src={item.url} type="video/mp4" />
 			</video>
 			</SwiperSlide>
